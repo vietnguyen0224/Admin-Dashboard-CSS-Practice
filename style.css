@@ -1,3 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -56,7 +64,11 @@
     grid-column: 2;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 10px;
+    gap: 30px;
+}
+
+.header {
+    grid-template-columns: 1fr 2fr;
 }
 
 .header > .left,
@@ -64,43 +76,84 @@
     display: grid;
 }
 
-.header > .left > .search-bar {
+.header > .left > .search-bar,
+.header > .left > .info {
     display: grid;
-    grid-template-columns: 1fr 7fr;
+    grid-template-columns: 1fr 3fr;
     align-items: center;
+    gap: 10px;
 }
 
-.header > .left > .search-bar > img {
-    width: 50%;
-    height: 50%;
-    justify-self: end;
+.header > .left > .search-bar > img,
+.avatar,
+.header > .right > .notification-menu > * {
+    object-fit: cover;
+    max-width: 50%;
+    max-height: 50%;
+    place-self: center;
 }
 
 .header > .left > .search-bar > input {
-    background-color: gray;
+    background-color: lightblue;
     border: solid 1px gray;
     border-radius: 8px;
 }
 
-.header > .left >.info {
+.header > .right > .notification-menu {
     display: grid;
-    grid-template-columns: minmax(100px, 1fr) 3fr;
+    grid-template-columns: 1fr 1fr 3fr;
     align-items: center;
+    gap: 10px;
 }
 
-.projects-container{
+.header > .right > .nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    place-items: center;
+}
+
+.header > .right > .nav > * {
+    background-color: aquamarine;
+    border: solid 1px gray;
+    border-radius: 8px;
+    padding: 10px;
+    width: 5rem;
+    text-align: center;
+}
+
+.main-content {
+    background-color: lightblue;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.projects-container, .announcements-container{
     grid-row: 1 / 3;
     display: flex;
     flex-direction: column;
 }
 
-.projects{
+.announcements-container {
+    grid-row: 1 / 2;
+}
+
+.projects, .announcements, .trendings {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
 }
 
+.project, .announcement, .trending {
+    background-color: whitesmoke;
+    padding: 10px;
+    border: solid 1px white;
+    border-radius: 6px;
+}
 
-.trending {
+
+.trending-container {
     grid-column: 2;
+    display: flex;
+    flex-direction: column;
 }
